@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>987 - 2048 clone using Fibonacci sequence</title>
+  <title>987 with save and load</title>
 
   <link href="style/main.css" rel="stylesheet" type="text/css">
   <link rel="shortcut icon" href="favicon.ico">
@@ -12,10 +12,6 @@
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
-  <meta property="og:title" content="987 game - 2048 with Fibonacci numbers"/>
-  <meta property="og:site_name" content="987 game"/>
-  <meta property="og:description" content="Join the Fibonacci numbers and get to the 987 tile!"/>
-  <meta property="og:image" content="http://cozmic72.github.io/987/meta/og_image.png"/>
 </head>
 <body>
   <div class="container">
@@ -30,6 +26,8 @@
     <div class="above-game">
       <p class="game-intro">Join the numbers and get to the <strong>987 tile!</strong></p>
       <a class="restart-button">New Game</a>
+      <a class="save-button">Save Game</a>
+      <a class="load-button">Load Game</a>
     </div>
 
     <div class="game-container">
@@ -76,11 +74,27 @@
     <p class="game-explanation">
       <strong class="important">How to play:</strong> Use your <strong>arrow keys</strong> or <strong>swipe</strong> to move the tiles. When two neigbouring numbers from the <a href="http://en.wikipedia.org/wiki/Fibonacci_number">Fibonacci sequence</a> touch, they <strong>merge into the next one!</strong>
     </p>
+    <p>
+      <strong class="important">The Fibonacci series:</strong> For those unfamiliar with the <a href="http://en.wikipedia.org/wiki/Fibonacci_number" target="_blank">Fibonacci numbers</a>, the first eleven numbers are: 
+    </p>
+    <p>
+      <strong>1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, ...</strong> 
+    </p>
+    <p>
+      Each number in the series is formed by the sum of the two previous numbers!
+    </p>
     <hr>
-    <p>Based on 2048, created by <a href="http://gabrielecirulli.com" target="_blank">Gabriele Cirulli,</a> which was in turn based on <a href="https://itunes.apple.com/us/app/1024!/id823499224" target="_blank">1024 by Veewo Studio</a> and conceptually similar to <a href="http://asherv.com/threes/" target="_blank">Threes by Asher Vollmer.</a> The adaptation to '987' and the Fibonacci sequence is by Jonathan Ross. 
+    <p>
+    <strong class="important">Note:</strong> This site is the save and load version of 987.
+    </p>
+    <hr>
+    <p>
+    Save and load functions by <a href="https://numberblock12.github.io" target="_blank">Numberblock 12.</a> 2048 is created by <a href="http://gabrielecirulli.com" target="_blank">Gabriele Cirulli.</a> Based on <a href="https://itunes.apple.com/us/app/1024!/id823499224" target="_blank">1024 by Veewo Studio</a> and conceptually similar to <a href="http://asherv.com/threes/" target="_blank">Threes by Asher Vollmer.</a>
     </p>
   </div>
 
+  <script src="js/bind_polyfill.js"></script>
+  <script src="js/classlist_polyfill.js"></script>
   <script src="js/animframe_polyfill.js"></script>
   <script src="js/keyboard_input_manager.js"></script>
   <script src="js/html_actuator.js"></script>
