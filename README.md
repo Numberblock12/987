@@ -4,6 +4,6 @@ A fork of [2048](https://github.com/gabrielecirulli/2048) by Gabriele Cirulli.  
 Made just for fun. [Play it here!](http://cozmic72.github.io/987/)
 
 ## Notes on gameplay
-For fairly obvious reasons, I ommitted the 0 tile, and randomly generate ones and twos.  (Generating twos would be a bit pointless...) I tweaked the probablilities to make it challenging enough yet not too frustrating.  With the current settings, in my experience, 987 is quite achievable, but I have not managed to get it to 1597 more than once. I also added the save and load features.
+For fairly obvious reasons, I ommitted the 0 tile, and randomly generate ones and twos.  (Generating threes would be a bit pointless...) I tweaked the probablilities to make it challenging enough yet not too frustrating.  With the current settings, in my experience, 987 is quite achievable, but I have not managed to get it to 1597 more than once. I also added the save and load features.
 
 Try setting the probability to 75% for a bit more of a challange.
