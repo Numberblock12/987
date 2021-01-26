@@ -16,14 +16,37 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
 // Restart the game
 GameManager.prototype.restart = function () {
   this.storageManager.clearGameState();
-  this.actuator.continue(); // Clear the game won/lost message
+  this.actuator.continueGame(); // Clear the game won/lost message
   this.setup();
+};
+
+
+// Save the current state of the game
+GameManager.prototype.save = function () {
+  this.storageManager.saveState(this.serialize());
+  //this.actuator.continueGame(); // Clear the game won/lost message
+  this.actuate();
+};
+
+// Load the previously saved saved state
+GameManager.prototype.load = function () {
+  var lastSave = this.storageManager.loadState();
+
+  if(lastSave) {
+    this.grid        = new Grid(lastSave.grid.size,
+                                lastSave.grid.cells); // Reload grid
+    this.score       = lastSave.score;
+    this.over        = lastSave.over;
+    this.won         = lastSave.won;
+    this.keepPlaying = lastSave.keepPlaying;
+  }
+  this.actuate()
 };
 
 // Keep playing after winning (allows going over 2048)
 GameManager.prototype.keepPlaying = function () {
   this.keepPlaying = true;
-  this.actuator.continue(); // Clear the game won/lost message
+  this.actuator.continueGame(); // Clear the game won/lost message
 };
 
 // Return true if the game is lost, or has won and the user hasn't kept playing
@@ -72,8 +95,7 @@ GameManager.prototype.addStartTiles = function () {
 // Adds a tile in a random position
 GameManager.prototype.addRandomTile = function () {
   if (this.grid.cellsAvailable()) {
-    var rand = Math.random();
-    var value = rand < 0.80 ? 1 : rand < 0.90 ? 2 : 3;
+    var value = Math.random() < 0.9 ? 1 : 2;
     var tile = new Tile(this.grid.randomAvailableCell(), value);
 
     this.grid.insertTile(tile);
@@ -182,7 +204,7 @@ GameManager.prototype.move = function (direction) {
           // Update the score
           self.score += merged.value;
 
-          // The mighty 2048 tile
+          // The mighty 987 tile
           if (merged.value === 987) self.won = true;
         } else {
           self.moveTile(tile, positions.farthest);
